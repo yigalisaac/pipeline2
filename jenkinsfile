@@ -6,9 +6,10 @@ pipeline {
                 sh "docker build -t pipeline2 ."
             }
         } 
-        stage ('test dockerfile') {
+        stage ('push dockerfile') {
             steps {
-                sh "docker push pipeline2 ."
+                sh "echo $dockerhub | docker login -u yigalisaac --password-stdin"
+                sh "docker push pipeline2:latest ."
 
             }
 

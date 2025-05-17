@@ -1,24 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage ('Build dockerfile') {
+        stage ("build dockerfile") {
             steps{
-                sh "docker build -t pipeline2 ."
+                sh "docker build -t pipline2 . "
             }
-        } 
-        stage ('push dockerfile') {
-            steps {
-                withCredentials([string(credentialsId: 'dockerhub-password', variable: 'DOCKERHUB_PASS')]) {
-                sh '''
-                    echo "$DOCKERHUB_PASS" | docker login -u yigalisaac --Yigalisaac0106@-stdin
-                '''
-            }
-
-                sh "docker push pipeline2:latest ."
-
-            }
-
         }
-
+        stage ("push dockerfile") {
+            steps{
+                sh "echo $dockerhub | docker login -u yigalisaac --password-stdin"
+                sh "docker push pipeline2"
+            }
+        }
     }
 }

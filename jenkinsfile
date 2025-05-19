@@ -8,7 +8,7 @@ pipeline {
         }
         stage ("push dockerfile") {
             steps{
-                sh "docker login —username--password"  | docker login -u yigalisaac@gmail.com --password-stdin"
+                sh "docker login —yigalisaac-Yarden0405@-"  | docker login -u --password-stdin"
                 sh "echo --password-"
                 sh "docker push pipeline2"
             }

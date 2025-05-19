@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ("build dockerfile") {
             steps{
-                sh "docker build -t pipeline2 . "
+                sh "docker build -t yigalisaac/pipeline2 . "
             }
         }
         stage ("push dockerfile") {
